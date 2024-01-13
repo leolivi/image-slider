@@ -9,10 +9,18 @@ let intervalId;
 // select two buttons and add event listener
 document
   .querySelector(".controls-container .left")
-  .addEventListener("click", moveLeft);
+  .addEventListener("click", () => {
+    moveLeft();
+    pauseAutoplay();
+    clearInterval();
+  });
 document
   .querySelector(".controls-container .right")
-  .addEventListener("click", moveRight);
+  .addEventListener("click", () => {
+    moveRight();
+    pauseAutoplay();
+    clearInterval();
+  });
 
 // select play and pause buttons and add event listener
 document
@@ -25,22 +33,15 @@ document
 
 // function to move the picture
 function moveRight() {
-  // stop autoplay manually
-  clearInterval(intervalId);
   // take first element and append it
   sliderContainer.append(document.querySelectorAll(".slide")[0]);
-  // restart autoplay
-  startAutoplay();
 };
 
 function moveLeft() {
-  // stop autoplay manually
-  clearInterval(intervalId);
   // prepend last element
   const arrayLength = document.querySelectorAll(".slide").length;
-  sliderContainer.prepend(document.querySelectorAll(".slide")[arrayLength - 1]);
-  // restart autoplay
-  startAutoplay();
+  const lastSlide = document.querySelectorAll(".slide")[arrayLength - 1];
+  sliderContainer.prepend(lastSlide);
 }
 
 // function for starting autoplay
