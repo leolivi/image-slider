@@ -183,3 +183,15 @@ body {
     width: 50%;
   } 
 }
+
+@media screen and (max-width:360px){
+  .slider {
+    width: 20rem;
+    height: 20rem;
+    overflow: hidden;
+  }
+
+  .controls-container {
+    width: 70%;
+  } 
+}
