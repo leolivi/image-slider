@@ -11,15 +11,15 @@ document
   .querySelector(".controls-container .left")
   .addEventListener("click", () => {
     moveLeft();
-    pauseAutoplay();
-    clearInterval();
+    // pauseAutoplay();
+    // clearInterval();
   });
 document
   .querySelector(".controls-container .right")
   .addEventListener("click", () => {
     moveRight();
-    pauseAutoplay();
-    clearInterval();
+    // pauseAutoplay();
+    // clearInterval();
   });
 
 // select play and pause buttons and add event listener
@@ -33,15 +33,21 @@ document
 
 // function to move the picture
 function moveRight() {
+  // reset autoplay
+  clearInterval(intervalId);
   // take first element and append it
   sliderContainer.append(document.querySelectorAll(".slide")[0]);
+  // start autoplay
+  startAutoplay();
 };
 
 function moveLeft() {
+  clearInterval(intervalId);
   // prepend last element
   const arrayLength = document.querySelectorAll(".slide").length;
   const lastSlide = document.querySelectorAll(".slide")[arrayLength - 1];
   sliderContainer.prepend(lastSlide);
+  startAutoplay();
 }
 
 // function for starting autoplay
