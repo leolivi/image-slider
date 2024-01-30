@@ -3,7 +3,7 @@ const sliderContainer = document.querySelector(".slider");
 // select the container of image
 const imageContainer = document.querySelector(".slide");
 // autoplay
-const interval = 4000;
+const interval = 3000;
 let intervalId;
 
 // select two buttons and add event listener
